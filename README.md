@@ -1,1 +1,1 @@
-# project2CMJ
+# product2CMJ
