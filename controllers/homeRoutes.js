@@ -26,6 +26,16 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get('/store', async (req,res) => {
+  try{    
+  // Pass serialized data and session flag into template
+  res.render('store', { 
+   });
+  } catch (err) {
+  res.status(500).json(err);
+}
+});
+
 router.get('/product', async (req, res) => {
   try {
     // Get all products and JOIN with user data
