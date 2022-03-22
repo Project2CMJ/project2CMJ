@@ -35,12 +35,6 @@ User.init(
         len: [8],
       },
     },
-    // birthday: {
-      
-    // },
-    // phone: {
-
-    // }
   },
   {
     hooks: {

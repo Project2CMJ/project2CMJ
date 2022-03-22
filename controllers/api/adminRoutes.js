@@ -1,12 +1,11 @@
 const router = require('express').Router();
 const { Product } = require('../../models');
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/product', async (req, res) => {
   try {
     const newProduct = await Product.create({
       ...req.body,
-      user_id: req.session.user_id,
     });
 
     res.status(200).json(newProduct);
@@ -15,13 +14,9 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const productData = await Product.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
     });
 
     if (!productData) {
