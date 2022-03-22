@@ -26,6 +26,31 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get('/product', async (req, res) => {
+  try {
+    // Get all products and JOIN with user data
+    const productData = await Product.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const products = productData.map((product) => product.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('product', { 
+      products, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 router.get('/product/:id', async (req, res) => {
   try {
@@ -39,9 +64,9 @@ router.get('/product/:id', async (req, res) => {
     });
 
     const product = productData.get({ plain: true });
-
+console.log(product)
     res.render('product', {
-      ...product,
+      product,
       logged_in: req.session.logged_in
     });
   } catch (err) {
