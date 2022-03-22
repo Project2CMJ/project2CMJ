@@ -47,6 +47,16 @@ router.get('/about', async (req,res) => {
 }
 });
 
+router.get('/admin', async (req,res) => {
+  try{    
+  // Pass serialized data and session flag into template
+  res.render('admin', { 
+   });
+  } catch (err) {
+  res.status(500).json(err);
+}
+});
+
 router.get('/product', async (req, res) => {
   try {
     // Get all products and JOIN with user data
@@ -86,9 +96,8 @@ router.get('/product/:id', async (req, res) => {
 
     const product = productData.get({ plain: true });
 console.log(product)
-    res.render('product', {
+    res.render('items', {
       product,
-      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
