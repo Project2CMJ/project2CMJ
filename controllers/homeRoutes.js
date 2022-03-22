@@ -26,10 +26,21 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get('/store', async (req,res) => {
   try{    
   // Pass serialized data and session flag into template
   res.render('store', { 
+   });
+  } catch (err) {
+  res.status(500).json(err);
+}
+});
+
+router.get('/about', async (req,res) => {
+  try{    
+  // Pass serialized data and session flag into template
+  res.render('about', { 
    });
   } catch (err) {
   res.status(500).json(err);
