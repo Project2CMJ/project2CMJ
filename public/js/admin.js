@@ -6,7 +6,7 @@ const newFormHandler = async (event) => {
   const description = document.querySelector('#product-desc').value.trim();
 
   if (name && price && description) {
-    const response = await fetch(`/api/product`, {
+    const response = await fetch(`/api/admin/product`, {
       method: 'POST',
       body: JSON.stringify({ name, price, description }),
       headers: {
@@ -26,7 +26,7 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/product/${id}`, {
+    const response = await fetch(`/api/admin/product/${id}`, {
       method: 'DELETE',
     });
 

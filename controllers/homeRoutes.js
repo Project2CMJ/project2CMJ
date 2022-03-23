@@ -50,8 +50,23 @@ router.get('/about', async (req,res) => {
 router.get('/admin', async (req,res) => {
   try{    
   // Pass serialized data and session flag into template
+  const productData = await Product.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ['name'],
+      },
+    ],
+  });
+
+  // Serialize data so the template can read it
+  const products = productData.map((product) => product.get({ plain: true }));
+  console.log(products)
+  // Pass serialized data and session flag into template
   res.render('admin', { 
-   });
+    products, 
+    logged_in: req.session.logged_in 
+  });
   } catch (err) {
   res.status(500).json(err);
 }

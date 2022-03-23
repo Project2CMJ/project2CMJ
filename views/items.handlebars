@@ -1,11 +1,14 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{description}}</p>
+  <h2>{{product.name}}</h2>
+  <p>{{product.description}}</p>
   <p>
     <span for="img" aria-label="money">Price: 💲</span>
-    <span class="dollar-amount">{{format_amount price}}</span>
+    <span class="dollar-amount">{{format_amount product.price}}</span>
   </p>
+  <!-- Render script for logged in users only -->
+{{#if logged_in}}
   <p>
     <button class="btn btn-primary">Save to favorites</button>
   </p>
+  {{/if}}
 </div>
