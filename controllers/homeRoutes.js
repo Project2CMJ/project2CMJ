@@ -6,70 +6,61 @@ router.get('/', async (req, res) => {
   try {
     // Get all products and JOIN with user data
     const productData = await Product.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+
     });
 
     // Serialize data so the template can read it
     const products = productData.map((product) => product.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      products, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      products,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/store', async (req,res) => {
-  try{    
-  // Pass serialized data and session flag into template
-  res.render('store', { 
-   });
+router.get('/store', async (req, res) => {
+  try {
+    // Pass serialized data and session flag into template
+    res.render('store', {
+    });
   } catch (err) {
-  res.status(500).json(err);
-}
+    res.status(500).json(err);
+  }
 });
 
-router.get('/about', async (req,res) => {
-  try{    
-  // Pass serialized data and session flag into template
-  res.render('about', { 
-   });
+router.get('/about', async (req, res) => {
+  try {
+    // Pass serialized data and session flag into template
+    res.render('about', {
+    });
   } catch (err) {
-  res.status(500).json(err);
-}
+    res.status(500).json(err);
+  }
 });
 
-router.get('/admin', async (req,res) => {
-  try{    
-  // Pass serialized data and session flag into template
-  const productData = await Product.findAll({
-    include: [
-      {
-        model: User,
-        attributes: ['name'],
-      },
-    ],
-  });
+router.get('/admin', async (req, res) => {
+  try {
+    if (req.session.role_id == 1) {
+        //go ahead and do admin stuff
+        
+        const productData = await Product.findAll({
 
-  // Serialize data so the template can read it
-  const products = productData.map((product) => product.get({ plain: true }));
-  console.log(products)
-  // Pass serialized data and session flag into template
-  res.render('admin', { 
-    products, 
-    logged_in: req.session.logged_in 
-  });
-  } catch (err) {
-  res.status(500).json(err);
-}
+        })
+        const products = productData.map((product) => product.get({ plain: true}));
+
+        res.render('admin', {products})
+
+    } else {    
+        // reject the request
+    };
+  } catch (e) {
+      // there was an error with the request
+
+  }
 });
 
 router.get('/product', async (req, res) => {
@@ -77,10 +68,10 @@ router.get('/product', async (req, res) => {
     // Get all products and JOIN with user data
     const productData = await Product.findAll({
       include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
+        // {
+        //   model: User,
+        //   attributes: ['name'],
+        // },
       ],
     });
 
@@ -88,9 +79,9 @@ router.get('/product', async (req, res) => {
     const products = productData.map((product) => product.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('product', { 
-      products, 
-      logged_in: req.session.logged_in 
+    res.render('product', {
+      products,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -101,16 +92,12 @@ router.get('/product', async (req, res) => {
 router.get('/product/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      include: []
+
     });
 
     const product = productData.get({ plain: true });
-console.log(product)
+    console.log(product)
     res.render('items', {
       product,
     });
