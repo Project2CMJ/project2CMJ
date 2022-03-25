@@ -16,6 +16,7 @@ const newFormHandler = async (event) => {
 
     if (response.ok) {
       document.location.replace('/product');
+      
     } else {
       alert('Failed to create product');
     }
@@ -31,7 +32,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/admin');
+      document.location.replace('/product');
     } else {
       alert('Failed to delete product');
     }
