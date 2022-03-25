@@ -4,18 +4,8 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all products and JOIN with user data
-    const productData = await Product.findAll({
-
-    });
-
-    // Serialize data so the template can read it
-    const products = productData.map((product) => product.get({ plain: true }));
-
     // Pass serialized data and session flag into template
     res.render('homepage', {
-      products,
-      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -42,7 +32,7 @@ router.get('/about', async (req, res) => {
   }
 });
 
-router.get('/admin', async (req, res) => {
+router.get('/api/admin', async (req, res) => {
   try {
     if (req.session.role_id == 1) {
         //go ahead and do admin stuff
@@ -52,7 +42,9 @@ router.get('/admin', async (req, res) => {
         })
         const products = productData.map((product) => product.get({ plain: true}));
 
-        res.render('admin', {products})
+        res.render('/api/admin', {
+          products,
+        });
 
     } else {    
         // reject the request
@@ -70,6 +62,7 @@ router.get('/product', async (req, res) => {
     // Get all products and JOIN with user data
     const productData = await Product.findAll({
       include: [
+
         // {
         //   model: User,
         //   attributes: ['name'],
@@ -83,7 +76,6 @@ router.get('/product', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('product', {
       products,
-      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -114,7 +106,6 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Product }],
     });
 
     const user = userData.get({ plain: true });
