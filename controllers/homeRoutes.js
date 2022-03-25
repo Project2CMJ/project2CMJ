@@ -58,8 +58,8 @@ router.get('/admin', async (req, res) => {
         // reject the request
     };
   } catch (e) {
+    res.status(500).json(err);
       // there was an error with the request
-
   }
 });
 
