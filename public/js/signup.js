@@ -1,4 +1,4 @@
-/*
+
 const signupForm = document.querySelector("#signup-form");
 
 signupForm.addEventListener("submit",(e)=>{
@@ -34,4 +34,3 @@ signupForm.addEventListener("submit",(e)=>{
         }
     })
 }) 
-*/

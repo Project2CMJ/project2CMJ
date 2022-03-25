@@ -56,9 +56,11 @@ router.get('/admin', async (req, res) => {
 
     } else {    
         // reject the request
+
     };
   } catch (e) {
       // there was an error with the request
+      res.status(500).json(e);
 
   }
 });
