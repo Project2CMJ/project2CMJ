@@ -1,22 +1,35 @@
 
-<!-- Loop over each object in the products array -->
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 {{#each products as |product| }}
-<div class="row mb-4 product">
-  <div class="col-md-5">
-    <h2>
-      <a href="/product/{{product.id}}">{{product.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount price}}</span>
-    </p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{product.description}}
-    </p>
-  </div>
-</div>
-{{/each}}
+ <section class="py-5">
 
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder"><a href="/product/{{product.id}}">{{product.name}}</a></h5>
+                                 {{product.description}}
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <span class="dollar-amount">${{format_amount price}}</span>
+                            </div>
+                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to Favorites</a></div>
+                        </div>
+                    </div>
+                </div>
+               
+</section>
+{{/each}}
+<!-- Render script for logged in users only -->
+{{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}}
