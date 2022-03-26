@@ -35,7 +35,7 @@ router.get('/about', async (req, res) => {
   }
 });
 
-router.get('/admin', withAuth, async (req, res) => {
+router.get('/admin', async (req, res) => {
   try {
     if (req.session.logged_in) {
       const userData = await User.findByPk(
@@ -74,7 +74,6 @@ router.get('/product', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('product', {
       products,
-      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
@@ -93,7 +92,6 @@ router.get('/product/:id', async (req, res) => {
     console.log(product)
     res.render('items', {
       product,
-      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
