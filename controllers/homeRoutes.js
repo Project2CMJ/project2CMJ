@@ -35,7 +35,7 @@ router.get('/about', async(req, res) => {
     }
 });
 
-router.get('/admin', withAuth, async(req, res) => {
+router.get('/admin', async(req, res) => {
     try {
         if (req.session.logged_in) {
             const userData = await User.findByPk(
@@ -45,19 +45,15 @@ router.get('/admin', withAuth, async(req, res) => {
                 // go ahead and do admin stuff
                 const productData = await Product.findAll({});
                 const products = productData.map((product) => product.get({ plain: true }));
-                console.log(products)
                 res.render('admin', {
-                    products,
+                    ...products,
                     logged_in: true
                 });
             }
 
 
-        } else if (userData.dataValues.role_id == 2) {
-            // res.status(444).json(err);
-            res.render('homepage', {
-
-            });
+        } else {
+            res.status(444).json(err);
         };
     } catch (e) {
         // there was an error with the request
@@ -76,7 +72,6 @@ router.get('/product', async(req, res) => {
         // Pass serialized data and session flag into template
         res.render('product', {
             products,
-            logged_in: true
         });
     } catch (err) {
         res.status(500).json(err);
@@ -95,7 +90,6 @@ router.get('/product/:id', async(req, res) => {
         console.log(product)
         res.render('items', {
             product,
-            logged_in: true
         });
     } catch (err) {
         res.status(500).json(err);
