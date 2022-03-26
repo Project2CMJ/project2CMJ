@@ -1,20 +1,24 @@
-[
-  {
-    "name": "Sam",
-    "email": "sam@hotmail.com",
-    "password": "mn1234589",
-    "role_id": 1
-  },
-  {
-    "name": "Lake",
-    "email": "lake@gmail.com",
-    "password": "password12345",
-    "role_id": 2
-  },
-  {
-    "name": "Amy",
-    "email": "amy@email.com",
-    "password": "password12345",
-    "role_id": 2
-  }
+[{
+        "name": "Sam",
+        "email": "sam@hotmail.com",
+        "password": "mn1234589",
+        "role_id": 1
+    },
+    {
+        "name": "Lake",
+        "email": "lake@gmail.com",
+        "password": "password12345",
+        "role_id": 2
+    },
+    {
+        "name": "Amy",
+        "email": "amy@email.com",
+        "password": "password12345",
+        "role_id": 2
+    } {
+        "name": "jo hill",
+        "email": "jos.a.hill@gmail.com",
+        "password": "password",
+        "role_id": 1
+    }
 ]
