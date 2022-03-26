@@ -27,11 +27,7 @@ const delButtonHandler = async(event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
-<<<<<<< HEAD
         const response = await fetch(`/admin/delete/product/${id}`, {
-=======
-        const response = await fetch(`/api/product/${id}`, {
->>>>>>> 3dab054c61a31582dfe9f3ef82dab8950e11d795
             method: 'DELETE',
         });
 
