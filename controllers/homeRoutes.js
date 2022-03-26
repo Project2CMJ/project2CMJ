@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { Product, User } = require('../models');
 const withAuth = require('../utils/auth');
-// const withAdmin = require('../utils/auth');
-
+const QRCode = require('qrcode')
 router.get('/', async (req, res) => {
   try {
     // Pass serialized data and session flag into template
@@ -108,13 +107,15 @@ router.get('/profile', withAuth, async (req, res) => {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
     });
-
     const user = userData.get({ plain: true });
+    QRCode.toDataURL("Receive $1 off! (First time visit only)", function(err, url){
+      res.render('profile', {
+        ...user,
+        qrcodeURL: url,
+        logged_in: true
+      });
+    })
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
   } catch (err) {
     res.status(500).json(err);
   }

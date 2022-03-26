@@ -1,22 +1,26 @@
-<div class="row">
+<!DOCTYPE html>
+<html lang="en">
+
+<form class="form login-form">
+<div class="row justify-content-center ">
   <div class="col-md-6">
     <h2>Login</h2>
-
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
+  <div class="form-outline mb-4">
+    <input type="text" id="email-login" class="form-control" />
+    <label for="email-login">Email address</label>
   </div>
-  
+  <div class="form-outline mb-4">
+    <input type="password" id="password-login" class="form-control" />
+    <label for="password-login">Password</label>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+<button type="submit" class="btn btn-primary btn-block mb-4" >Sign in</button>
+    </div>
+  </div>
 </div>
+</div>
+</form>
+
 
 <script src="./js/login.js"></script>

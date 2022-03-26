@@ -20,7 +20,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col text-center">
-                                        <a href="/product" class="btn btn-secondary btn-lg">Checkout Our Products!</a>
+                                        <a href="/product" class="btn btn-secondary btn-lg" id="placeHolder">Check Out Our Products!</a>
                                     </div>
                                 </div>
                             </div>
@@ -33,11 +33,10 @@
     </section>
 </html>
 
+                        <img height="100" width="100" src={{qrcodeURL}}>
+
 <!-- Render script for logged in users only -->
 {{#if logged_in}}
 <script src="/js/logout.js"></script>
-<script src="../qrcode.js" type="text/javascript"></script>
-<script src="../qrcode_SJIS.js" type="text/javascript"></script>
-<script src="assets/sample.js" type="text/javascript"></script>
 {{/if}}
   
