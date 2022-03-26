@@ -47,7 +47,7 @@ router.get('/admin', async(req, res) => {
                 const productData = await Product.findAll({});
                 const products = productData.map((product) => product.get({ plain: true }));
                 res.render('admin', {
-                    ...products,
+                    products,
                     logged_in: true
                 });
             }

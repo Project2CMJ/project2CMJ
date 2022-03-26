@@ -40,20 +40,22 @@
         <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
       </div>
     </div>
-                                <div class="text-center">
-                                <h5 class="fw-bolder"><a href="/product/{{product.id}}">{{product.name}}</a></h5>
-                                 {{product.description}}
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <span class="dollar-amount">${{format_amount price}}</span>
-                            </div>
+
+    <div class="text-center">
+    <h5 class="fw-bolder"><a href="/product/{{product.id}}">{{product.name}}</a></h5>
+     {{product.description}}
+    <div class="d-flex justify-content-center small text-warning mb-2">
+        <div class="bi-star-fill"></div>
+        <div class="bi-star-fill"></div>
+        <div class="bi-star-fill"></div>
+        <div class="bi-star-fill"></div>
+        <div class="bi-star-fill"></div>
+    </div>
+    <span class="dollar-amount">${{format_amount price}}</span>
+    </div>
     {{/each}}
   </div>
+
     {{/if}}
 </div>
 
