@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Product, User } = require('../models');
 const withAuth = require('../utils/auth');
 const QRCode = require('qrcode')
+
 router.get('/', async(req, res) => {
     try {
         // Pass serialized data and session flag into template
