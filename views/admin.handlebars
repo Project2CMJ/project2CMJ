@@ -18,7 +18,7 @@
         <input class="form-input" type="number" id="product-price" name="product-price" />
       </div>
       <div class="form-group">
-        <label for="product-desc">description:</label>
+        <label for="product-desc">Description:</label>
         <textarea class="form-input" id="product-desc" name="product-desc"></textarea>
       </div>
       <div class="form-group">
@@ -28,31 +28,22 @@
   </div>
 
   {{#if products.length}}
-  <div class="col-md-6 product-list">
+  <div class="col-md-6 product-list border-dark">
     <h3>Current Products:</h3>
 
     {{#each products as |product|}}
     <div class="row mb-2">
-      <div class="col-md-8">
+      <div class="col-md-8 card-header">
         <h4><a href="/product/{{product.id}}">{{product.name}}</a></h4>
+        {{!-- <button class="btn btn-sm btn-secondary" data-id="{{product.id}}">EDIT</button> --}}
+
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
+      <div class="col-md-3 card-header">
+      <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
+      
       </div>
     </div>
 
-    <div class="text-center">
-    <h5 class="fw-bolder"><a href="/product/{{product.id}}">{{product.name}}</a></h5>
-     {{product.description}}
-    <div class="d-flex justify-content-center small text-warning mb-2">
-        <div class="bi-star-fill"></div>
-        <div class="bi-star-fill"></div>
-        <div class="bi-star-fill"></div>
-        <div class="bi-star-fill"></div>
-        <div class="bi-star-fill"></div>
-    </div>
-    <span class="dollar-amount">${{format_amount price}}</span>
-    </div>
     {{/each}}
   </div>
 

@@ -15,7 +15,7 @@ const newFormHandler = async(event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/product');
+            document.location.replace('/admin');
 
         } else {
             alert('Failed to create product');
@@ -27,12 +27,12 @@ const delButtonHandler = async(event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
-        const response = await fetch(`/api/admin/product/${id}`, {
+        const response = await fetch(`/admin/delete/product/${id}`, {
             method: 'DELETE',
         });
 
         if (response.ok) {
-            document.location.replace('/product');
+            document.location.replace('/admin');
         } else {
             alert('Failed to delete product');
         }

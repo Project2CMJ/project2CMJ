@@ -14,6 +14,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      mixpanel.track("USER_LOGIN")
       // If successful, redirect the browser to the profile page
       document.location.replace('/profile');
     } else {
