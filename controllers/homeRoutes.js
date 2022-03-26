@@ -52,7 +52,6 @@ router.get('/admin', async(req, res) => {
                 });
             }
 
-
         } else {
             res.status(444).json(err);
         };
