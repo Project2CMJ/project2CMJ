@@ -27,11 +27,11 @@
     </form>
   </div>
 
-  {{#if Products.length}}
+  
   <div class="col-md-6 product-list">
     <h3>Current Products:</h3>
 
-    {{#each Products as |Product|}}
+    {{#each products as |product|}}
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/product/{{product.id}}">{{product.name}}</a></h4>
@@ -40,9 +40,21 @@
         <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
       </div>
     </div>
+                                <div class="text-center">
+                                <h5 class="fw-bolder"><a href="/product/{{product.id}}">{{product.name}}</a></h5>
+                                 {{product.description}}
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <span class="dollar-amount">${{format_amount price}}</span>
+                            </div>
     {{/each}}
   </div>
-  {{/if}}
+  
 </div>
 
 <script src="/js/admin.js"></script>

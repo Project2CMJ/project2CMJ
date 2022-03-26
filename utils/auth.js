@@ -7,4 +7,15 @@ const withAuth = (req, res, next) => {
   }
 };
 
+// const withAdmin = async (req, res, next) => {
+//   const userData =''
+//   if (req.session.logged_in) {
+  
+    
+//   } else {
+//     next();
+//   }
+// };
+
 module.exports = withAuth;
+// module.exports = withAdmin;

@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const { Product, User } = require('../models');
 const withAuth = require('../utils/auth');
+// const withAdmin = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     // Pass serialized data and session flag into template
     res.render('homepage', {
+      
     });
   } catch (err) {
     res.status(500).json(err);
@@ -16,6 +18,7 @@ router.get('/store', async (req, res) => {
   try {
     // Pass serialized data and session flag into template
     res.render('store', {
+      
     });
   } catch (err) {
     res.status(500).json(err);
@@ -26,29 +29,37 @@ router.get('/about', async (req, res) => {
   try {
     // Pass serialized data and session flag into template
     res.render('about', {
+      
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/admin', async (req, res) => {
+router.get('/admin', withAuth, async (req, res) => {
   try {
-    if (req.session.role_id == 1) {
-        //go ahead and do admin stuff
-        
-        const productData = await Product.findAll({
+    if (req.session.logged_in) {
+      const userData = await User.findByPk(
+        req.session.user_id
+      );
+      if (userData.dataValues.role_id == 1){
+      // go ahead and do admin stuff
+      const productData = await Product.findAll({
+      });
+      const products = productData.map((product) => product.get({ plain: true }));
+      res.render('admin', {
+        ...products,
+        logged_in: true
+      }); 
+      }
 
-        })
-        const products = productData.map((product) => product.get({ plain: true}));
-        res.render('admin', {
-          products,
-        });
 
+    }else{
+      res.status(444).json(err);
     };
   } catch (e) {
-    res.status(500).json(err);
-      // there was an error with the request
+    // there was an error with the request
+    res.status(500).json(e);
   }
 });
 
@@ -64,6 +75,7 @@ router.get('/product', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('product', {
       products,
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
@@ -82,6 +94,7 @@ router.get('/product/:id', async (req, res) => {
     console.log(product)
     res.render('items', {
       product,
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
