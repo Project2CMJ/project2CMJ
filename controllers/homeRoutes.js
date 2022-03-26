@@ -32,7 +32,7 @@ router.get('/about', async (req, res) => {
   }
 });
 
-router.get('/api/admin', async (req, res) => {
+router.get('/admin', async (req, res) => {
   try {
     if (req.session.role_id == 1) {
         //go ahead and do admin stuff
@@ -41,19 +41,14 @@ router.get('/api/admin', async (req, res) => {
 
         })
         const products = productData.map((product) => product.get({ plain: true}));
-
-        res.render('/api/admin', {
+        res.render('admin', {
           products,
         });
 
-    } else {    
-        // reject the request
-
     };
   } catch (e) {
+    res.status(500).json(err);
       // there was an error with the request
-      res.status(500).json(e);
-
   }
 });
 
@@ -61,13 +56,6 @@ router.get('/product', async (req, res) => {
   try {
     // Get all products and JOIN with user data
     const productData = await Product.findAll({
-      include: [
-
-        // {
-        //   model: User,
-        //   attributes: ['name'],
-        // },
-      ],
     });
 
     // Serialize data so the template can read it

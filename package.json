@@ -22,7 +22,8 @@
     "mysql2": "^2.2.5",
     "qrcode": "^1.5.0",
     "sequelize": "^6.17.0",
-    "sequelizer": "^1.1.4"
+    "sequelizer": "^1.1.4",
+    "yaqrcode": "^0.2.1"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
