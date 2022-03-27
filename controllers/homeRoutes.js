@@ -6,7 +6,9 @@ const QRCode = require('qrcode')
 router.get('/', async(req, res) => {
     try {
         // Pass serialized data and session flag into template
-        res.render('homepage');
+        res.render('homepage',{
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -15,7 +17,9 @@ router.get('/', async(req, res) => {
 router.get('/store', async(req, res) => {
     try {
         // Pass serialized data and session flag into template
-        res.render('store');
+        res.render('store',{
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -23,9 +27,10 @@ router.get('/store', async(req, res) => {
 
 router.get('/about', async(req, res) => {
     try {
+       
         // Pass serialized data and session flag into template
         res.render('about', {
-
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
@@ -59,6 +64,7 @@ router.get('/admin', async(req, res) => {
 
 router.get('/product', async(req, res) => {
     try {
+        
         // Get all products and JOIN with user data
         const productData = await Product.findAll({});
        
@@ -68,6 +74,7 @@ router.get('/product', async(req, res) => {
         // Pass serialized data and session flag into template
         res.render('product', {
             products,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
@@ -86,6 +93,7 @@ router.get('/product/:id', async(req, res) => {
         console.log(product)
         res.render('items', {
             product,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);

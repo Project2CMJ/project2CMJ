@@ -6,11 +6,11 @@
 
                 <div class="col mb-5">
                     <div class="card h-100">
-                        <img class="card-img-top" src="https://drive.google.com/uc?export=view&id={{format_image product.image}}" alt="..." />
+                        <a href="/product/{{product.id}}"><img class="card-img-top" src="https://drive.google.com/uc?export=view&id={{format_image product.image}}" alt="..." /></a>
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <h5 class="fw-bolder"><a href="/product/{{product.id}}">{{product.name}}</a></h5>
-                                 {{product.description}}
+                    
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
@@ -18,7 +18,7 @@
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                 </div>
-                                <span class="dollar-amount">${{format_amount price}}</span>
+            
                             </div>
                         </div>
                          {{#if logged_in}}
