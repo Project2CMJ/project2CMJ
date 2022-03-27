@@ -108,7 +108,8 @@ router.get('/profile', withAuth, async(req, res) => {
             attributes: { exclude: ['password'] },
         });
         const user = userData.get({ plain: true });
-        QRCode.toDataURL("Receive $1 off! (First time visit only)", function(err, url) {
+        
+        QRCode.toDataURL("https://drive.google.com/uc?export=view&id=1rof43F3HZFoRNISWAgpuGIs7yLCvo1Az", function(err, url) {
             res.render('profile', {
                 ...user,
                 qrcodeURL: url,
