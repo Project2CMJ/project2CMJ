@@ -4,11 +4,12 @@ const newFormHandler = async(event) => {
     const name = document.querySelector('#product-name').value.trim();
     const price = document.querySelector('#product-price').value.trim();
     const description = document.querySelector('#product-desc').value.trim();
+    const image = document.querySelector('#product-img').value.trim() || "";
 
     if (name && price && description) {
         const response = await fetch(`/api/admin/product`, {
             method: 'POST',
-            body: JSON.stringify({ name, price, description }),
+            body: JSON.stringify({ name, price, description, image }),
             headers: {
                 'Content-Type': 'application/json',
             },

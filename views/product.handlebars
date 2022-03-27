@@ -6,7 +6,7 @@
 
                 <div class="col mb-5">
                     <div class="card h-100">
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <img class="card-img-top" src="https://drive.google.com/uc?export=view&id={{format_image product.image}}" alt="..." />
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <h5 class="fw-bolder"><a href="/product/{{product.id}}">{{product.name}}</a></h5>
@@ -30,6 +30,7 @@
                 </div>
                
 </section>
+
 {{/each}}
 <!-- Render script for logged in users only -->
 {{#if logged_in}}
