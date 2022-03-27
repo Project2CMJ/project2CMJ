@@ -6,9 +6,7 @@ const QRCode = require('qrcode')
 router.get('/', async(req, res) => {
     try {
         // Pass serialized data and session flag into template
-        res.render('homepage', {
-
-        });
+        res.render('homepage');
     } catch (err) {
         res.status(500).json(err);
     }
@@ -17,9 +15,7 @@ router.get('/', async(req, res) => {
 router.get('/store', async(req, res) => {
     try {
         // Pass serialized data and session flag into template
-        res.render('store', {
-
-        });
+        res.render('store');
     } catch (err) {
         res.status(500).json(err);
     }
