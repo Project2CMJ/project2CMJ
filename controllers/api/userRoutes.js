@@ -2,8 +2,12 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 router.post('/', async(req, res) => {
+    console.log('we are hear creating a user')
     try {
-        const userData = await User.create(req.body);
+        const userData = await User.create({
+            ...req.body,
+            role_id: 2
+        });
 
         req.session.save(() => {
             req.session.role_id = userData.role_id;
@@ -34,13 +38,13 @@ router.post("/", async (req, res) => {
 });
 */
 
-router.post('/signup', async(req, res) => {
-    try {
-        res.render('signup');
-    } catch (err) {
-        res.status(400).json(err);
-    }
-});
+// router.post('/signup', async(req, res) => {
+//     try {
+//         res.render('signup');
+//     } catch (err) {
+//         res.status(400).json(err);
+//     }
+// });
 
 router.post('/login', async(req, res) => {
     try {
