@@ -8,7 +8,7 @@
   <div class="col-md-6 row justify-content-left">
     <h3>Create a New Product:</h3>
 
-    <form class="form-group">
+    <form class="form-group new-product-form">
       <div class="form-outline">
         <label for="product-name">Product Name:</label>
         <br>
@@ -17,21 +17,21 @@
       <div class="form-outline">
         <label for="product-price">Price ($):</label>
         <br>
-        <input class="form-input" type="number" id="product-price" name="product-price" placeholder="Price"/>
+        <input class="form-input" type="number" id="product-price" name="product-price" placeholder="Price" />
       </div>
       <div class="form-outline">
         <label for="product-desc">Description:</label>
         <br>
-        <textarea class="form-input" id="product-desc" name="product-desc" placeholder="Add Description" ></textarea>
+        <textarea class="form-input" id="product-desc" name="product-desc" placeholder="Add Description"></textarea>
       </div>
       <div class="form-outline">
         <label for="product-img">Image Url:</label>
         <br>
-        <input class="form-input" id="product-img" name="product-img" placeholder="Image Url"/>
+        <input class="form-input" id="product-img" name="product-img" placeholder="Image Url" />
       </div>
 
       <div class="form-outline mt-4">
-        <button type="submit" class="btn btn-primary new-product-form">Create</button>
+        <button type="submit" class="btn btn-primary">Create</button>
       </div>
     </form>
   </div>
@@ -45,53 +45,36 @@
       <div class="col-md-8 card-header">
         <h4><a href="/product/{{product.id}}">{{product.name}}</a></h4>
         {{!-- <button class="btn btn-sm btn-secondary" data-id="{{product.id}}">EDIT</button> --}}
+      </div>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
+        DELETE
+      </button>
 
-      </div>
-      <div class="col-md-3 card-header">
-        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
-          DELETE
-        </button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to DELETE this product?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">CANCEL</button>
-        <button type="button" class="btn btn-sm btn-danger product-list" data-id="{{product.id}}">DELETE</button>
-      </div>
-    </div>
-  </div>
-</div>
-      
-      </div>
-    </div>
-
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">ALERT!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Are you sure you want to DELETE this product?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">CANCEL</button>
-                <button type="button" class="btn btn-sm btn-danger product-list" data-id="{{product.id}}">DELETE</button>
-              </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">ALERT!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to <b>DELETE</b> this Product?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+              <button type="button" class="btn btn-primary product-list" data-id="{{product.id}}">DELETE</button>
             </div>
           </div>
         </div>
-
       </div>
     </div>
     {{/each}}
   </div>
-
   {{/if}}
 </div>
 
