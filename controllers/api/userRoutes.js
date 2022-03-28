@@ -67,10 +67,18 @@ router.post('/login', async(req, res) => {
                 .json({ message: 'Incorrect email or password, please try again' });
             return;
         }
+        console.log(userData.role_id)
+
+        let admin = false
+        if (userData.role_id == 1) {
+            admin = true
+        }
+    
 
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
+            req.session.admin = admin
 
             res.json({ user: { role_id: userData.role_id }, message: 'You are now logged in!' });
         });

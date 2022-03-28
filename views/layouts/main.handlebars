@@ -43,7 +43,9 @@
                      <!-- Conditionally render login or logout links -->
                     {{#if logged_in}}
                     <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/profile">Profile</a></li>
+                    {{#if admin}}
                     <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/admin">Admin</a></li>
+                    {{/if}}
                     <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" id="logout">logout</a></li>
                     {{else}}
                     <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/login">login</a></li>

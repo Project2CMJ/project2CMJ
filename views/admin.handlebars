@@ -46,11 +46,11 @@
         <h4><a href="/product/{{product.id}}">{{product.name}}</a></h4> 
         <button class="btn btn-sm btn-secondary">EDIT</button>
         <!-- Button trigger modal -->
-      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">DELETE</button>
+      <button type="button" class="btn btn-sm btn-danger delete-product" data-toggle="modal" data-target="#modal-{{product.id}}">DELETE</button>
       </div>
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      <div class="modal fade" id="modal-{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -65,7 +65,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
-              <button type="button" class="btn btn-primary" data-id="{{product.id}}">DELETE</button>
+              <button type="button" class="btn btn-primary" data-id="{{product.id}}" >DELETE</button>
             </div>
           </div>
         </div>

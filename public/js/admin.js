@@ -27,7 +27,7 @@ const newFormHandler = async(event) => {
 const delButtonHandler = async(event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
-
+        
         const response = await fetch(`/admin/delete/product/${id}`, {
             method: 'DELETE',
         });
@@ -40,7 +40,11 @@ const delButtonHandler = async(event) => {
     }
 };
 
-
+const updateModal = (event) =>{
+    const id = event.target.getAttribute('data-id');
+    const deletebtn = document.getElementById('delete');
+    deletebtn.setAttribute('data-id', id)
+}
 
 
 document
@@ -50,3 +54,7 @@ document
 document
     .querySelector('.product-list')
     .addEventListener('click', delButtonHandler);
+
+// document
+//     .querySelector('.delete-product')
+//     .addEventListener('click', updateModal);

@@ -7,7 +7,8 @@ router.get('/', async(req, res) => {
     try {
         // Pass serialized data and session flag into template
         res.render('homepage',{
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            admin: req.session.admin
         });
     } catch (err) {
         res.status(500).json(err);
@@ -18,7 +19,8 @@ router.get('/store', async(req, res) => {
     try {
         // Pass serialized data and session flag into template
         res.render('store',{
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            admin: req.session.admin
         });
     } catch (err) {
         res.status(500).json(err);
@@ -30,7 +32,8 @@ router.get('/about', async(req, res) => {
        
         // Pass serialized data and session flag into template
         res.render('about', {
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            admin: req.session.admin
         });
     } catch (err) {
         res.status(500).json(err);
@@ -49,7 +52,8 @@ router.get('/admin', async(req, res) => {
                 const products = productData.map((product) => product.get({ plain: true }));
                 res.render('admin', {
                     products,
-                    logged_in: true
+                    logged_in: true,
+                    admin: req.session.admin
                 });
             }
 
@@ -74,7 +78,8 @@ router.get('/product', async(req, res) => {
         // Pass serialized data and session flag into template
         res.render('product', {
             products,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            admin: req.session.admin
         });
     } catch (err) {
         res.status(500).json(err);
@@ -93,7 +98,8 @@ router.get('/product/:id', async(req, res) => {
         console.log(product)
         res.render('items', {
             product,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            admin: req.session.admin
         });
     } catch (err) {
         res.status(500).json(err);
@@ -108,12 +114,13 @@ router.get('/profile', withAuth, async(req, res) => {
             attributes: { exclude: ['password'] },
         });
         const user = userData.get({ plain: true });
-        
+        console.log(req.session.admin)
         QRCode.toDataURL("https://drive.google.com/uc?export=view&id=1rof43F3HZFoRNISWAgpuGIs7yLCvo1Az", function(err, url) {
             res.render('profile', {
                 ...user,
                 qrcodeURL: url,
-                logged_in: true
+                logged_in: true,
+                admin: req.session.admin
             });
         })
 
