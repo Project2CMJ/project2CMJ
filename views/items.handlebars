@@ -1,4 +1,5 @@
 <div class="text-center">
+  <img class="card-img-top" src="https://drive.google.com/uc?export=view&id={{format_image product.image}}" alt="..." />
   <h2>{{product.name}}</h2>
   <p>{{product.description}}</p>
   <p>
@@ -7,9 +8,9 @@
   </p>
   <!-- Render script for logged in users only -->
 {{#if logged_in}}
-  <p>
+  {{!-- <p>
     <button class="btn btn-primary">Save to favorites</button>
-  </p>
+  </p> --}}
 </div>
 
 <script src="/js/logout.js"></script>

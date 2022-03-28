@@ -16,7 +16,16 @@ const loginFormHandler = async(event) => {
         if (response.ok) {
             // If successful, redirect the browser to the profile page
             // document.location.replace('/profile');
+
             console.log(response)
+            let result = await response.json()
+            console.log(result)
+            if (result.user.role_id = 2) {
+                document.location.replace('/profile');
+            } else if (result.user.role_id = 1) {
+                document.location.replace('/admin');
+
+            };
         } else {
             alert(response.statusText);
         }
@@ -87,6 +96,6 @@ document
     .querySelector('.login-form')
     .addEventListener('submit', loginFormHandler);
 
-document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+// document
+//     .querySelector('.signup-form')
+//     .addEventListener('submit', signupFormHandler);

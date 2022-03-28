@@ -2,16 +2,19 @@
   {
     "name": "Apple Pie Shake",
     "description": "21 vitamins + minerals + calcium + 8g of fiber + 17g of protein",
-    "price": 500
+    "price": 8,
+    "image": "https://drive.google.com/file/d/1MmT6v1Pvj4Y0DTwzqYSNgSXSa78bvB6R/view?usp=sharing"
   },
   {
     "name": "Chocolate Covered Strawberry",
     "description": "the perfect shake for this Valentine’s Day weekend!!!",
-    "price": 10000
+    "price": 8,
+    "image": "https://drive.google.com/file/d/1NxZtSvZeBKRtqvelcDWr_rW2DQegqjrQ/view?usp=sharing"
   },
   {
     "name": "Cᴏᴏᴋɪᴇ Mᴏɴsᴛᴇʀ",
     "description": "you can never go wrong with this classic tastes amazing & will keep you feeling even better!",
-    "price": 800
+    "price": 8,
+    "image" : "https://drive.google.com/file/d/1FciLNeYmqdLKI3vfEbnstxdkrFILANFw/view?usp=sharing"
   }
 ]
