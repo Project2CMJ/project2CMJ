@@ -132,8 +132,10 @@ router.get('/login', async(req, res) => {
             // go ahead and do admin stuff
 
             res.redirect('/admin');
-            return;
-        } else { res.redirect('/profile') }
+    
+        } else { 
+            res.redirect('/profile') 
+        };
     }
 
     res.render('login');

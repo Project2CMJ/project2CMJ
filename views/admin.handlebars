@@ -14,9 +14,9 @@
         <br>
         <input class="form-input" type="text" id="product-name" name="product-name" placeholder="Product Name" />
       </div>
-      <div class="form-outline"> 
+      <div class="form-outline">
         <label for="product-price">Price ($):</label>
-        <br>     
+        <br>
         <input class="form-input" type="number" id="product-price" name="product-price" placeholder="Price"/>
       </div>
       <div class="form-outline">
@@ -48,17 +48,8 @@
 
       </div>
       <div class="col-md-3 card-header">
-      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
-  DELETE
-</button>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">ALERT!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
+          DELETE
         </button>
       </div>
       <div class="modal-body">
@@ -76,14 +67,35 @@
     </div>
 
 
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ALERT!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to DELETE this product?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">CANCEL</button>
+                <button type="button" class="btn btn-sm btn-danger product-list" data-id="{{product.id}}">DELETE</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
+      </div>
+    </div>
     {{/each}}
   </div>
 
-    {{/if}}
+  {{/if}}
 </div>
 
-    <!-- Render script for logged in users only -->
+<!-- Render script for logged in users only -->
 {{#if logged_in}}
 <script src="/js/logout.js"></script>
 {{/if}}
