@@ -4,9 +4,9 @@
 {{#each products as |product| }}
  <section class="py-5">
 
-                <div class="col mb-5">
+                <div class="col mb-5  style="width:200px; height:200px;">
                     <div class="card h-100">
-                        <a href="/product/{{product.id}}"><img class="card-img-top" src="https://drive.google.com/uc?export=view&id={{format_image product.image}}" alt="..." /></a>
+                        <a href="/product/{{product.id}}"><img class="card-img-top" src="https://drive.google.com/uc?export=view&id={{format_image product.image}}" alt="..."/></a>
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <h5 class="fw-bolder"><a href="/product/{{product.id}}">{{product.name}}</a></h5>
@@ -21,11 +21,6 @@
             
                             </div>
                         </div>
-                         {{#if logged_in}}
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to Favorites</a></div>
-                        </div>
-                        {{/if}}
                     </div>
                 </div>
                
