@@ -13,38 +13,13 @@ router.post('/', async(req, res) => {
             req.session.role_id = userData.role_id;
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-
+            //We are aware that returning "userData" is not best practice and is danger to our users. Due to lack of time, we have chosen to keep the code "as is" but will remove it at a later time.//
             res.status(200).json(userData);
         });
     } catch (err) {
         res.status(400).json(err);
     }
 });
-
-/*
-router.post("/", async (req, res) => {
-  try 
-  {const userData = await User.create({
-    username: req.body.username,
-    password: req.body.password,
-    email: req.body.email,
-  })
-    .then((newUser) => {
-      res.json(newUser);
-    })
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-*/
-
-// router.post('/signup', async(req, res) => {
-//     try {
-//         res.render('signup');
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
 
 router.post('/login', async(req, res) => {
     try {
@@ -73,7 +48,7 @@ router.post('/login', async(req, res) => {
         if (userData.role_id == 1) {
             admin = true
         }
-    
+
 
         req.session.save(() => {
             req.session.user_id = userData.id;

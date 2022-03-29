@@ -6,7 +6,7 @@ const QRCode = require('qrcode')
 router.get('/', async(req, res) => {
     try {
         // Pass serialized data and session flag into template
-        res.render('homepage',{
+        res.render('homepage', {
             logged_in: req.session.logged_in,
             admin: req.session.admin
         });
@@ -18,7 +18,7 @@ router.get('/', async(req, res) => {
 router.get('/store', async(req, res) => {
     try {
         // Pass serialized data and session flag into template
-        res.render('store',{
+        res.render('store', {
             logged_in: req.session.logged_in,
             admin: req.session.admin
         });
@@ -29,7 +29,7 @@ router.get('/store', async(req, res) => {
 
 router.get('/about', async(req, res) => {
     try {
-       
+
         // Pass serialized data and session flag into template
         res.render('about', {
             logged_in: req.session.logged_in,
@@ -47,7 +47,6 @@ router.get('/admin', async(req, res) => {
                 req.session.user_id
             );
             if (userData.dataValues.role_id == 1) {
-                // go ahead and do admin stuff
                 const productData = await Product.findAll({});
                 const products = productData.map((product) => product.get({ plain: true }));
                 res.render('admin', {
@@ -61,21 +60,20 @@ router.get('/admin', async(req, res) => {
             res.status(444).json(err);
         };
     } catch (e) {
-        // there was an error with the request
         res.status(500).json(e);
     }
 });
 
 router.get('/product', async(req, res) => {
     try {
-        
+
         // Get all products and JOIN with user data
         const productData = await Product.findAll({});
-       
+
         // Serialize data so the template can read it
         const products = productData.map((product) => product.get({ plain: true }));
-    console.log(products)
-        // Pass serialized data and session flag into template
+        console.log(products)
+            // Pass serialized data and session flag into template
         res.render('product', {
             products,
             logged_in: req.session.logged_in,
@@ -139,9 +137,9 @@ router.get('/login', async(req, res) => {
             // go ahead and do admin stuff
 
             res.redirect('/admin');
-    
-        } else { 
-            res.redirect('/profile') 
+
+        } else {
+            res.redirect('/profile')
         };
     }
 
