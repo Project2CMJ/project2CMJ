@@ -92,7 +92,9 @@ Skills to be implemented on this project are:
 - Heroku
 - Used git commands to add, commit, and push all changes on to GitHub repository
 
-## View of deployed application
+## View of Deployed Application
+
+![Screen Shot 2022-03-28 at 10 16 30 PM](https://user-images.githubusercontent.com/94095220/160538326-8c8b1b57-2b47-4865-b3a3-4f561b0b3c44.png)
 
 
 
@@ -106,4 +108,4 @@ Skills to be implemented on this project are:
 
 ## References and Inpirations
 - QR Code Generator GitHub
-- Bootstrap patters/layouts
+- Bootstrap patterns/layouts
