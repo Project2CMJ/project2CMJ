@@ -101,3 +101,9 @@ Skills to be implemented on this project are:
 ## Links to Deployed Application and GitHup Repository
 - URL for deployed application: http://selectnutrition.herokuapp.com/
 - URL for GitHub repository: https://github.com/Project2CMJ/project2CMJ.git
+
+
+
+## References and Inpirations
+- QR Code Generator GitHub
+- Bootstrap patters/layouts
