@@ -94,6 +94,7 @@ Skills to be implemented on this project are:
 
 ## View of deployed application
 
+![Screen Shot 2022-03-28 at 9 34 50 PM](https://user-images.githubusercontent.com/94095220/160538161-2f4901fc-0e19-41b6-9983-54c8c0bfdc00.png)
 
 
 
@@ -106,4 +107,4 @@ Skills to be implemented on this project are:
 
 ## References and Inpirations
 - QR Code Generator GitHub
-- Bootstrap patters/layouts
+- Bootstrap patterns/layouts
