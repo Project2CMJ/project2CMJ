@@ -1,4 +1,4 @@
-# Projuct 2 - Real-Life Client - SELECT NUTRITION
+# Project 2 - Real-Life Client - SELECT NUTRITION
 
 Project 2 is our first opportunity to show employers what we are capable of. Our team was fortunate enough to not only create and deploy a unique and interactive full-stack application, but we were able to aply our newly learned skills to a real-life situation.
 
@@ -107,5 +107,5 @@ Skills to be implemented on this project are:
 
 
 ## References and Inpirations
-- QR Code Generator GitHub
-- Bootstrap patterns/layouts
+- QR Code Generator GitHub https://github.com/kazuhikoarase/qrcode-generator
+- Bootstrap patterns/layouts https://getbootstrap.com/docs/5.1/examples/ , https://startbootstrap.com/
