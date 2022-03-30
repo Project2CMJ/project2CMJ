@@ -108,4 +108,4 @@ Skills to be implemented on this project are:
 
 ## References and Inpirations
 - QR Code Generator GitHub
-- Bootstrap patterns/layouts
+- Bootstrap patterns/layouts https://getbootstrap.com/docs/5.1/examples/ , https://startbootstrap.com/
